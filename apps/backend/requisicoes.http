@@ -1,0 +1,70 @@
+// Teste
+GET http://localhost:4000/ping
+###
+// retorna todos os eventos
+GET http://localhost:4000/eventos
+###
+// Retorna a busca de evento por alias
+GET http://localhost:4000/eventos/backend-java
+###
+// retorna a busca de evento por id
+GET http://localhost:4000/eventos/e3d06dac-3c8a-4b87-ba7c-85a11ccb872f
+###
+// Verifica se o alias é valido
+GET http://localhost:4000/eventos/validar/evento-fullstack/21ff36d7-8fa7-495e-9339-d1687458b660
+###
+// acessar evento passando id e senha
+POST http://localhost:4000/eventos/acessar
+Content-Type: application/json
+ 
+{
+  "id": "9db594ba-2015-4126-923b-9453d7edd512",
+  "senha": "129asdjas"
+}
+
+// salvar um novo evento
+###
+POST http://localhost:4000/eventos
+Content-Type: application/json
+
+{
+  "alias": "backend-java",
+  "senha": "129asdjas",
+  "data": "2025-01-24T19:00",
+  "nome": "Backend com NodeJS",
+  "local": "Novo Hamburgo, RS",
+  "descricao": "Um evento completo para aprender desenvolvimento backend com nodejs.",
+  "imagem": "https://images.prismic.io/vaultinum/0458a9f1-e149-4037-b9aa-aa4b4fb53c25_propriete-intellectuelle-code-source-protection-compressed.jpg?auto=compress,format&rect=0,0,2400,981&w=2400&h=981",
+  "imagemBackground": "https://images.prismic.io/vaultinum/0458a9f1-e149-4037-b9aa-aa4b4fb53c25_propriete-intellectuelle-code-source-protection-compressed.jpg?auto=compress,format&rect=0,0,2400,981&w=2400&h=981",
+  "publicoEsperado": 400,
+  "convidados": [
+    {
+      "nome": "Jéssica Amaral",
+      "email": "jessica@example.com",
+      "confirmado": true,
+      "possuiAcompanhantes": true,
+      "qtdeAcompanhantes": 4
+    },
+    {
+      "nome": "Amorita",
+      "email": "amora@example.com",
+      "confirmado": true,
+      "possuiAcompanhantes": true,
+      "qtdeAcompanhantes": 1
+    }
+  ]
+}
+
+// salvar um novo convidado
+###
+POST http://localhost:4000/eventos/backend-nodejs/convidado
+Content-Type: application/json
+
+{
+  "id": "70aad3a8-3307-4b4b-a8c6-a3796b7aef33",
+  "nome": "Rafael Schenkel",
+  "email": "rafael@example.com",
+  "confirmado": true,
+  "possuiAcompanhantes": true,
+  "qtdeAcompanhantes": 10
+}
